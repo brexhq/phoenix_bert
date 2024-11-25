@@ -12,6 +12,8 @@ defmodule Plug.Parsers.BERT do
   @behaviour Plug.Parsers
   import Plug.Conn
 
+  def init(opts), do: opts
+
   def parse(conn, "application", subtype, _headers, opts) do
     cond do
       subtype == "x-bert" || String.ends_with?(subtype, "+bert") ->
